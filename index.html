@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#060a12" />
+    <meta
+      name="description"
+      content="我爱学习的个人主页 —— 沈阳理工大学信息学院电子信息工程专业学生，爱好算法与运动。"
+    />
+    <meta property="og:title" content="我爱学习 · 个人主页" />
+    <meta
+      property="og:description"
+      content="沈阳理工大学信息学院电子信息工程专业学生，爱好算法与运动。"
+    />
+    <title>我爱学习 · 个人主页</title>
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- 标记 JS 可用：入场动画只在此时启用，禁用 JS 也能正常阅读 -->
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <!-- 背景装饰：网格 + 光晕 + 粒子 -->
+    <div class="bg-layer" aria-hidden="true">
+      <canvas class="bg-particles" id="bgParticles"></canvas>
+    </div>
+
+    <!-- ===================== 移动端顶栏 ===================== -->
+    <header class="topbar">
+      <a class="topbar__brand" href="#home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>我爱学习</span>
+      </a>
+      <button
+        class="topbar__menu"
+        id="menuBtn"
+        type="button"
+        aria-label="打开导航菜单"
+        aria-expanded="false"
+        aria-controls="sidebar"
+      >
+        <span class="topbar__menu-line"></span>
+        <span class="topbar__menu-line"></span>
+        <span class="topbar__menu-line"></span>
+      </button>
+    </header>
+
+    <div class="shell">
+      <!-- ===================== 侧边栏 ===================== -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar__inner">
+          <!-- 个人资料 -->
+          <section class="profile">
+            <!-- ✎ 头像：assets/avatar.jpg（点击可放大查看） -->
+            <div class="avatar">
+              <button
+                class="avatar__btn"
+                id="avatarBtn"
+                type="button"
+                aria-label="放大查看头像"
+                title="点击放大"
+              >
+                <img
+                  id="avatarImg"
+                  src="assets/avatar.jpg"
+                  alt="我爱学习的头像：熊猫表情包，写着有 bug 的 C 语言 Hello World"
+                  width="128"
+                  height="128"
+                />
+              </button>
+              <span class="avatar__status" title="在线"></span>
+            </div>
+
+            <h1 class="profile__name">我爱学习</h1>
+            <p class="profile__role">电子信息工程 · 算法爱好者</p>
+            <p class="profile__bio">
+              沈阳理工大学信息学院在读。白天和算法题较劲，晚上换上跑鞋出门。
+            </p>
+
+            <ul class="profile__tags" aria-label="关键词">
+              <li>ZKW 的小弟</li>
+              <li>算法</li>
+              <li>运动</li>
+            </ul>
+          </section>
+
+          <!-- 导航 -->
+          <nav class="nav" aria-label="主导航">
+            <a class="nav__link is-active" href="#home">
+              <span class="nav__index">01</span><span class="nav__label">首页</span>
+            </a>
+            <a class="nav__link" href="#about">
+              <span class="nav__index">02</span><span class="nav__label">关于</span>
+            </a>
+            <a class="nav__link" href="#skills">
+              <span class="nav__index">03</span><span class="nav__label">技能</span>
+            </a>
+            <a class="nav__link" href="#algo">
+              <span class="nav__index">04</span><span class="nav__label">算法</span>
+            </a>
+            <a class="nav__link" href="#projects">
+              <span class="nav__index">05</span><span class="nav__label">项目</span>
+            </a>
+            <a class="nav__link" href="#updates">
+              <span class="nav__index">06</span><span class="nav__label">近况</span>
+            </a>
+            <a class="nav__link" href="#contact">
+              <span class="nav__index">07</span><span class="nav__label">联系</span>
+            </a>
+          </nav>
+
+          <!-- 侧栏底部：社交 + 主题 -->
+          <div class="sidebar__foot">
+            <div class="social-row">
+              <!-- ✎ 替换 GitHub 用户名 -->
+              <a
+                class="icon-btn"
+                href="https://github.com/zkwxd"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub 主页"
+                title="GitHub"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"
+                  />
+                </svg>
+              </a>
+              <!-- ✎ 替换 QQ 号，邮箱即 QQ号@qq.com -->
+              <a
+                class="icon-btn"
+                href="mailto:2059913911@qq.com"
+                aria-label="QQ 邮箱"
+                title="QQ 邮箱"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"
+                  />
+                </svg>
+              </a>
+            </div>
+
+            <button class="theme-toggle" id="themeBtn" type="button" aria-label="切换深浅色主题">
+              <span class="theme-toggle__icon" aria-hidden="true"></span>
+              <span class="theme-toggle__text">外观</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- 移动端遮罩 -->
+      <div class="sidebar-overlay" id="sidebarOverlay" hidden></div>
+
+      <!-- ===================== 主内容 ===================== -->
+      <main class="main" id="main">
+        <!-- ============ 首页 ============ -->
+        <section class="hero" id="home" aria-labelledby="hero-title">
+          <div class="hero__text">
+            <p class="eyebrow">
+              <span class="eyebrow__mark" aria-hidden="true"></span>
+              HELLO, WORLD
+            </p>
+
+            <h2 class="hero__title" id="hero-title">
+              <span class="hero__hello">你好，我是</span>
+              <span class="hero__name">我爱学习</span>
+            </h2>
+
+            <p class="hero__lead">
+              沈阳理工大学 · 信息学院 · 电子信息工程专业在读。
+              正在学算法，也在坚持运动 —— 把想到的解法，变成通过的代码。
+            </p>
+
+            <div class="hero__actions">
+              <a class="btn btn--primary" href="#projects">
+                <span>看看我做过什么</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 12h14M13 6l6 6-6 6"
+                  />
+                </svg>
+              </a>
+              <a class="btn btn--ghost" href="#contact">联系我</a>
+            </div>
+
+            <ul class="hero__meta">
+              <li><span class="k">学校</span>沈阳理工大学</li>
+              <li><span class="k">专业</span>电子信息工程</li>
+              <li><span class="k">方向</span>算法</li>
+              <li><span class="k">身份</span>ZKW 的小弟</li>
+            </ul>
+          </div>
+
+          <!-- 装饰：代码卡片 -->
+          <aside class="code-card" aria-label="个人信息代码卡片">
+            <div class="code-card__bar">
+              <span class="dot dot--r"></span>
+              <span class="dot dot--y"></span>
+              <span class="dot dot--g"></span>
+              <span class="code-card__file">me.config.js</span>
+            </div>
+            <pre class="code-card__body"><code><span class="c-kw">const</span> <span class="c-var">me</span> <span class="c-op">=</span> <span class="c-brace">{</span>
+  <span class="c-key">name</span><span class="c-op">:</span>   <span class="c-str">'我爱学习'</span><span class="c-op">,</span>
+  <span class="c-key">school</span><span class="c-op">:</span> <span class="c-str">'沈阳理工大学'</span><span class="c-op">,</span>
+  <span class="c-key">college</span><span class="c-op">:</span> <span class="c-str">'信息学院'</span><span class="c-op">,</span>
+  <span class="c-key">major</span><span class="c-op">:</span>  <span class="c-str">'电子信息工程'</span><span class="c-op">,</span>
+  <span class="c-key">focus</span><span class="c-op">:</span>  <span class="c-brace">[</span><span class="c-str">'算法'</span><span class="c-op">,</span> <span class="c-str">'运动'</span><span class="c-brace">]</span><span class="c-op">,</span>
+  <span class="c-key">mentor</span><span class="c-op">:</span> <span class="c-str">'ZKW'</span><span class="c-op">,</span>      <span class="c-comment">// 小弟一名</span>
+  <span class="c-key">status</span><span class="c-op">:</span> <span class="c-str">'正在变强'</span>
+<span class="c-brace">}</span><span class="c-op">;</span></code></pre>
+            <div class="code-card__foot">
+              <span class="pulse" aria-hidden="true"></span>
+              <span>status: <strong>running</strong></span>
+            </div>
+          </aside>
+        </section>
+
+        <!-- ============ 关于 ============ -->
+        <section class="section" id="about" aria-labelledby="about-title">
+          <header class="section__head">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>02 / ABOUT</p>
+            <h2 class="section__title" id="about-title">关于我</h2>
+            <p class="section__desc">一点简单的自我介绍。</p>
+          </header>
+
+          <div class="about__grid">
+            <article class="card about__intro" data-reveal>
+              <h3 class="card__title">我是谁</h3>
+              <p>
+                我是<strong>我爱学习</strong>，沈阳理工大学<strong>信息学院</strong>
+                <strong>电子信息工程</strong>专业的一名学生。日常和算法题死磕，
+                享受一道题从“不会”到“Accepted”的过程。
+              </p>
+              <p>
+                课余时间喜欢<strong>运动</strong>，跑步、打球，换一种方式放空大脑。
+                代码之外，也想留一点时间给生活。
+              </p>
+              <p>
+                圈子里自称 <span class="hl">ZKW 的小弟</span> ——
+                向大佬看齐，慢慢把自己写强。
+              </p>
+            </article>
+
+            <article class="card about__facts" data-reveal>
+              <h3 class="card__title">基本档案</h3>
+              <!-- ✎ 以下档案已按你提供的信息填写，需要改动直接说 -->
+              <dl class="fact-list">
+                <div>
+                  <dt>姓名</dt>
+                  <dd>我爱学习</dd>
+                </div>
+                <div>
+                  <dt>学校</dt>
+                  <dd>沈阳理工大学</dd>
+                </div>
+                <div>
+                  <dt>学院</dt>
+                  <dd>信息学院</dd>
+                </div>
+                <div>
+                  <dt>专业</dt>
+                  <dd>电子信息工程</dd>
+                </div>
+                <div>
+                  <dt>方向</dt>
+                  <dd>算法 · 数据结构</dd>
+                </div>
+                <div>
+                  <dt>兴趣</dt>
+                  <dd>运动 · 写代码</dd>
+                </div>
+              </dl>
+            </article>
+
+            <article class="card about__now" data-reveal>
+              <h3 class="card__title">当前状态</h3>
+              <ul class="status-list">
+                <li>
+                  <span class="status-dot status-dot--live"></span>
+                  <span class="status-label">学习中</span>
+                  <span class="status-value">算法与数据结构</span>
+                </li>
+                <li>
+                  <span class="status-dot"></span>
+                  <span class="status-label">在做</span>
+                  <span class="status-value">个人主页搭建</span>
+                </li>
+                <li>
+                  <span class="status-dot"></span>
+                  <span class="status-label">课余</span>
+                  <span class="status-value">运动，保持状态</span>
+                </li>
+                <li>
+                  <span class="status-dot"></span>
+                  <span class="status-label">目标</span>
+                  <span class="status-value">每天一点小进步</span>
+                </li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- ============ 技能 ============ -->
+        <section class="section" id="skills" aria-labelledby="skills-title">
+          <header class="section__head">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>03 / SKILLS</p>
+            <h2 class="section__title" id="skills-title">技能栈</h2>
+            <p class="section__desc">持续学习，慢慢变强。</p>
+          </header>
+
+          <!-- ✎ 技术栈按真实情况增删 -->
+          <div class="skill-grid">
+            <article class="card skill-card" data-reveal>
+              <h3 class="card__title">
+                <span class="skill-card__icon" aria-hidden="true">⌁</span>算法
+              </h3>
+              <p class="card__desc">当前的主攻方向，边刷边总结。</p>
+              <ul class="chip-list">
+                <li class="chip">数据结构</li>
+                <li class="chip">动态规划</li>
+                <li class="chip">图论</li>
+                <li class="chip">搜索</li>
+                <li class="chip">贪心</li>
+                <li class="chip">数学</li>
+              </ul>
+            </article>
+
+            <article class="card skill-card" data-reveal>
+              <h3 class="card__title">
+                <span class="skill-card__icon" aria-hidden="true">&lt;/&gt;</span>开发
+              </h3>
+              <p class="card__desc">能做出自己想用的小东西。</p>
+              <ul class="chip-list">
+                <li class="chip">C / C++</li>
+                <li class="chip">Python</li>
+                <li class="chip">HTML / CSS</li>
+                <li class="chip">JavaScript</li>
+              </ul>
+            </article>
+
+            <article class="card skill-card" data-reveal>
+              <h3 class="card__title">
+                <span class="skill-card__icon" aria-hidden="true">⚙</span>工具
+              </h3>
+              <p class="card__desc">日常写码和调试的常用工具。</p>
+              <ul class="chip-list">
+                <li class="chip">Git / GitHub</li>
+                <li class="chip">VS Code</li>
+                <li class="chip">Dev-C++</li>
+                <li class="chip">Typora</li>
+              </ul>
+            </article>
+
+            <article class="card skill-card" data-reveal>
+              <h3 class="card__title">
+                <span class="skill-card__icon" aria-hidden="true">◈</span>其他
+              </h3>
+              <p class="card__desc">专业相关，也还在慢慢啃。</p>
+              <ul class="chip-list">
+                <li class="chip">电路基础</li>
+                <li class="chip">单片机</li>
+                <li class="chip">信号与系统</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- ============ 算法 ============ -->
+        <section class="section" id="algo" aria-labelledby="algo-title">
+          <header class="section__head">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>04 / ALGORITHM</p>
+            <h2 class="section__title" id="algo-title">算法之路</h2>
+            <p class="section__desc">把想到的解法，变成通过的代码。</p>
+          </header>
+
+          <div class="algo__grid">
+            <article class="card algo__intro" data-reveal>
+              <h3 class="card__title">在刷题这件事上</h3>
+              <p>
+                从最基础的枚举、模拟开始，一点点往上搭：先看懂题意，
+                再想清楚复杂度，最后把代码敲到不超时。
+              </p>
+              <p>
+                作为 <span class="hl">ZKW 的小弟</span>，
+                对算法一直抱着一点敬畏，也抱着一点热情。
+                不追求刷得最多，只希望每一道做过的题都真的变成自己的东西。
+              </p>
+              <div class="hero__actions">
+                <!-- ✎ 改成你的刷题主页链接 -->
+                <a class="btn btn--primary" href="https://www.luogu.com.cn/" target="_blank" rel="noopener noreferrer">去刷题</a>
+                <a class="btn btn--ghost" href="#projects">看看实践</a>
+              </div>
+            </article>
+
+            <div class="platform-grid">
+              <!-- ✎ 替换成你真实的刷题主页 -->
+              <a class="card platform-card" data-reveal href="https://www.luogu.com.cn/" target="_blank" rel="noopener noreferrer">
+                <span class="platform-card__tag">OJ</span>
+                <h3 class="card__title">洛谷</h3>
+                <p class="card__desc">日常刷题与题解记录。</p>
+              </a>
+              <a class="card platform-card" data-reveal href="https://codeforces.com/" target="_blank" rel="noopener noreferrer">
+                <span class="platform-card__tag">Contest</span>
+                <h3 class="card__title">Codeforces</h3>
+                <p class="card__desc">打比赛，见见世面。</p>
+              </a>
+              <a class="card platform-card" data-reveal href="https://www.acwing.com/" target="_blank" rel="noopener noreferrer">
+                <span class="platform-card__tag">Learn</span>
+                <h3 class="card__title">AcWing</h3>
+                <p class="card__desc">跟着课程系统学算法。</p>
+              </a>
+              <a class="card platform-card" data-reveal href="https://leetcode.cn/" target="_blank" rel="noopener noreferrer">
+                <span class="platform-card__tag">Interview</span>
+                <h3 class="card__title">LeetCode</h3>
+                <p class="card__desc">面试题与专项练习。</p>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ 项目 ============ -->
+        <section class="section" id="projects" aria-labelledby="projects-title">
+          <header class="section__head">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>05 / PROJECTS</p>
+            <h2 class="section__title" id="projects-title">项目</h2>
+            <p class="section__desc">把想法变成真正能用的东西。</p>
+          </header>
+
+          <!-- ✎ 项目卡片：整块替换标题 / 简介 / 技术标签 / 链接 -->
+          <div class="project-grid">
+            <article class="card project-card" data-reveal>
+              <div class="project-card__thumb thumb--a" aria-hidden="true">
+                <span>01</span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="card__title">项目名称</h3>
+                <p class="card__desc">
+                  一句话说明这个项目做了什么、解决了什么问题。
+                  这里是示例文案，等你把真实内容发我。
+                </p>
+                <ul class="chip-list">
+                  <li class="chip chip--sm">C++</li>
+                  <li class="chip chip--sm">算法</li>
+                </ul>
+                <div class="project-card__links">
+                  <!-- ✎ 源码 / 演示链接 -->
+                  <a class="link-arrow" href="#" aria-label="查看项目源码">
+                    源码
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                  <a class="link-arrow" href="#" aria-label="查看项目演示">
+                    演示
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card" data-reveal>
+              <div class="project-card__thumb thumb--b" aria-hidden="true">
+                <span>02</span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="card__title">项目名称</h3>
+                <p class="card__desc">
+                  一句话说明这个项目做了什么、解决了什么问题。
+                  这里是示例文案，等你把真实内容发我。
+                </p>
+                <ul class="chip-list">
+                  <li class="chip chip--sm">Python</li>
+                  <li class="chip chip--sm">工具</li>
+                </ul>
+                <div class="project-card__links">
+                  <a class="link-arrow" href="#">
+                    源码
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                  <a class="link-arrow" href="#">
+                    演示
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card" data-reveal>
+              <div class="project-card__thumb thumb--c" aria-hidden="true">
+                <span>03</span>
+              </div>
+              <div class="project-card__body">
+                <h3 class="card__title">项目名称</h3>
+                <p class="card__desc">
+                  一句话说明这个项目做了什么、解决了什么问题。
+                  这里是示例文案，等你把真实内容发我。
+                </p>
+                <ul class="chip-list">
+                  <li class="chip chip--sm">Web</li>
+                  <li class="chip chip--sm">前端</li>
+                </ul>
+                <div class="project-card__links">
+                  <a class="link-arrow" href="#">
+                    源码
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                  <a class="link-arrow" href="#">
+                    演示
+                    <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                      <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M9 7h8v8" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ============ 近况 ============ -->
+        <section class="section" id="updates" aria-labelledby="updates-title">
+          <header class="section__head">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>06 / LOG</p>
+            <h2 class="section__title" id="updates-title">近况</h2>
+            <p class="section__desc">写代码，也留一点时间给生活。</p>
+          </header>
+
+          <!-- ✎ 时间线条目：替换时间 / 标题 / 描述 -->
+          <ol class="timeline">
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__marker" aria-hidden="true"></div>
+              <div class="card timeline__card">
+                <p class="timeline__date">2026.10</p>
+                <h3 class="card__title">搭建个人主页</h3>
+                <p class="card__desc">
+                  想要一个属于自己的小世界，于是开始写这个页面。
+                  框架已经搭好，内容会一点点填进来。
+                </p>
+              </div>
+            </li>
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__marker" aria-hidden="true"></div>
+              <div class="card timeline__card">
+                <p class="timeline__date">2026.09</p>
+                <h3 class="card__title">继续刷算法题</h3>
+                <p class="card__desc">
+                  保持手感，把之前做过的题重新整理一遍，写成自己的题解。
+                </p>
+              </div>
+            </li>
+            <li class="timeline__item" data-reveal>
+              <div class="timeline__marker" aria-hidden="true"></div>
+              <div class="card timeline__card">
+                <p class="timeline__date">2026.09</p>
+                <h3 class="card__title">新学期开始</h3>
+                <p class="card__desc">
+                  沈阳理工大学信息学院 · 电子信息工程专业，继续向前。
+                  课余时间坚持运动。
+                </p>
+              </div>
+            </li>
+          </ol>
+        </section>
+
+        <!-- ============ 联系 ============ -->
+        <section class="section" id="contact" aria-labelledby="contact-title">
+          <header class="section__head">
+            <p class="eyebrow"><span class="eyebrow__mark" aria-hidden="true"></span>07 / CONTACT</p>
+            <h2 class="section__title" id="contact-title">联系我</h2>
+            <p class="section__desc">欢迎交流算法、技术，或者随便聊聊。</p>
+          </header>
+
+          <div class="card contact-card" data-reveal>
+            <div class="contact-card__text">
+              <h3 class="card__title">保持联系</h3>
+              <p class="card__desc">
+                如果你想聊聊算法题、技术问题，或者只是打个招呼，都可以通过下面的方式找到我。
+              </p>
+            </div>
+
+            <div class="contact-actions">
+              <!-- ✎ 替换 GitHub 用户名 -->
+              <a
+                class="contact-btn"
+                href="https://github.com/zkwxd"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="contact-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path
+                      fill="currentColor"
+                      d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48l-.01-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85l-.01 2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2z"
+                    />
+                  </svg>
+                </span>
+                <span class="contact-btn__body">
+                  <strong>GitHub</strong>
+                  <small>github.com/zkwxd</small>
+                </span>
+              </a>
+
+              <!-- ✎ 替换 QQ 号：邮箱 = QQ号@qq.com -->
+              <a class="contact-btn" href="mailto:2059913911@qq.com">
+                <span class="contact-btn__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="20" height="20">
+                    <path
+                      fill="currentColor"
+                      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"
+                    />
+                  </svg>
+                </span>
+                <span class="contact-btn__body">
+                  <strong>QQ 邮箱</strong>
+                  <small>2059913911@qq.com</small>
+                </span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============ 页脚 ============ -->
+        <footer class="footer">
+          <p>
+            © <span id="year">2026</span> 我爱学习 · 用 HTML / CSS / JS 手写
+          </p>
+          <p class="footer__motto">每天一点小进步，把想到的解法变成通过的代码。</p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- 回到顶部 -->
+    <button class="to-top" id="toTop" type="button" aria-label="回到顶部">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 19V5M6 11l6-6 6 6" />
+      </svg>
+    </button>
+
+    <!-- 头像放大查看 -->
+    <div class="lightbox" id="lightbox" hidden>
+      <figure class="lightbox__panel">
+        <img
+          src="assets/avatar.jpg"
+          alt="我爱学习的头像大图"
+          id="lightboxImg"
+        />
+        <figcaption class="lightbox__caption">
+          <code>#inculde 《stdio。h》</code> · 让代码再飞一会儿
+        </figcaption>
+      </figure>
+      <button class="lightbox__close" id="lightboxClose" type="button" aria-label="关闭">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+          <path
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            d="M6 6l12 12M18 6L6 18"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
