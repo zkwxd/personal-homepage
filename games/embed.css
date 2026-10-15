@@ -1,0 +1,19 @@
+/* Local integration only: compact layout and touch controls for upstream games. */
+:root { color-scheme: dark; --green: #7bf5d0; --green-light: #7bf5d0; --green-dark: #385967; --font-display: Consolas,"Microsoft YaHei",sans-serif; --font-body: "Segoe UI","Microsoft YaHei",sans-serif; }
+* { box-sizing: border-box; }
+html { height: auto; min-height: 100%; background: #080c10; }
+body { margin: 0; min-height: 100svh; height: auto; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 16px; background: #080c10; color: #edf1f4; font: 13px/1.7 "Segoe UI","Microsoft YaHei",sans-serif; }
+button,a { touch-action: manipulation; }button:focus-visible,a:focus-visible { outline: 2px solid #7bf5d0; outline-offset: 3px; }
+.frame { max-width: 410px; padding: 0; background: transparent; border: 0; box-shadow: none; }
+.title-block { display: none; }.stats-row { grid-template-columns: repeat(2,1fr); margin-bottom: 12px; }.stats-row .stat-card:nth-child(2),.stats-row .stat-card:nth-child(3) { display: none; }.stat-card { padding: 9px 12px; border-radius: 3px; background: #10191f; }.stat-icon { background: #7bf5d010; border-radius: 3px; }.stat-value { font-size: 19px; }.stat-label { font-size: 10px; }
+#board { display: block; border: 1px solid #385967; border-radius: 3px; box-shadow: none; }.board-wrap { margin: 0 auto; max-width: 400px; }.overlay { border-radius: 3px; padding: 20px; }.overlay-title { font-size: 23px; font-weight: 600; }.overlay-sub { font-size: 11px; }.overlay-btn { border-radius: 3px; box-shadow: none; font-size: 12px; padding: 11px 20px; }.hint { font-size: 10px; margin: 13px 0 0; }
+.sokoban-heading { width: min(100%,410px); margin: 0 auto 14px; }.sokoban-heading > span { color: #7bf5d0; font: 12px Consolas,monospace; }.sokoban-heading > p { font-size: 11px; color: #8d9aa5; margin: 8px 0 0; }
+html[data-game="sokoban"] canvas { display: block; width: min(100%,340px); height: auto; background: #17252d; border: 1px solid #385967; border-radius: 3px; touch-action: none; }
+.game-controls { width: min(100%,410px); display: flex; align-items: center; justify-content: center; gap: 27px; padding: 18px 0 10px; }.direction-pad { display: grid; grid-template-columns: repeat(3,36px); grid-template-rows: repeat(2,33px); gap: 5px; }.direction-pad button { border: 1px solid #385967; background: #10191f; color: #7bf5d0; font: 18px Consolas,monospace; border-radius: 3px; cursor: pointer; }.direction-pad button:active { background: #244137; }.direction-pad button:nth-child(1) { grid-column: 2; }.direction-pad button:nth-child(2) { grid-column: 1; grid-row: 2; }.direction-pad button:nth-child(3) { grid-column: 2; grid-row: 2; }.direction-pad button:nth-child(4) { grid-column: 3; grid-row: 2; }.game-reset { border: 1px solid #385967; padding: 7px 12px; background: #10191f; color: #8d9aa5; border-radius: 3px; cursor: pointer; font: 11px "Microsoft YaHei",sans-serif; }
+.game-credit { font-size: 9px; color: #8d9aa5; margin: 8px auto 0; text-align: center; max-width: 100%; }.game-credit a { color: #7bf5d0; text-decoration: none; }.game-credit a:hover { text-decoration: underline; }
+@media(max-width:350px) { body { padding: 12px; }.game-controls { padding-top: 13px; }.game-credit { font-size: 8px; }.hint { font-size: 9px; } }
+/* Override Sokoban's original inline stylesheet without changing its rules. */
+html[data-game="sokoban"] body { height: auto; min-height: 100svh; background: #080c10; align-items: center; justify-content: flex-start; }
+#board { height: auto; }
+.direction-pad { grid-template-columns: repeat(3,44px); grid-template-rows: repeat(2,44px); }
+.game-reset { min-height: 44px; }

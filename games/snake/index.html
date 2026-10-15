@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-CN" data-game="snake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>贪吃蛇 · 摸鱼时间</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../embed.css" />
+  </head>
+  <body>
+    <div class="frame">
+      <header class="title-block">
+        <h1 class="game-title">
+          <span class="line white">Snake</span>
+          <span class="line green">Game</span>
+        </h1>
+        <div class="rule"><span class="dot"></span></div>
+        <p class="tagline">
+          Classic. <span class="accent">Fun.</span> Addictive.
+        </p>
+      </header>
+
+      <div class="stats-row">
+        <div class="stat-card">
+          <span class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M7 4h10v3a5 5 0 0 1-10 0V4z"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M7 5H4a3 3 0 0 0 3 3M17 5h3a3 3 0 0 1-3 3"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+              <path
+                d="M9 17h6M12 13v4M9 20h6"
+                stroke="currentColor"
+                stroke-width="1.7"
+                stroke-linecap="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <span class="stat-label">得分</span>
+            <span class="stat-value" id="score">0</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect
+                x="10"
+                y="2"
+                width="4"
+                height="4"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <rect
+                x="10"
+                y="10"
+                width="4"
+                height="4"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <rect
+                x="2"
+                y="10"
+                width="4"
+                height="4"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+              <rect
+                x="18"
+                y="10"
+                width="4"
+                height="4"
+                rx="1"
+                stroke="currentColor"
+                stroke-width="1.6"
+              />
+            </svg>
+          </span>
+          <div>
+            <span class="stat-label">Arrow keys</span>
+            <span class="stat-value small">to move</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M3 12a9 9 0 1 1 3 6.7"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M3 8v5h5"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <span class="stat-label">R</span>
+            <span class="stat-value small">to restart</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <span class="stat-icon">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path
+                d="M12 3l2.4 5.5L20 9.3l-4 3.9.9 5.6L12 16l-4.9 2.8.9-5.6-4-3.9 5.6-.8L12 3z"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+          <div>
+            <span class="stat-label">最高分</span>
+            <span class="stat-value" id="high-score">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="board-wrap">
+        <canvas id="board" width="400" height="400"></canvas>
+
+        <div class="overlay visible" id="start-overlay">
+          <p class="overlay-title">准备好摸鱼了吗？</p>
+          <p class="overlay-sub">
+            用方向键、WASD 或下方按钮移动，吃到苹果就能得分。
+          </p>
+          <button class="overlay-btn" id="start-btn">
+            开始游戏
+          </button>
+        </div>
+
+        <div class="overlay" id="over-overlay">
+          <p class="overlay-title danger">游戏结束</p>
+          <p class="overlay-sub">
+            本次得分： <span id="final-score">0</span>
+          </p>
+          <button class="overlay-btn" id="restart-btn">
+            再来一局
+          </button>
+        </div>
+      </div>
+
+      <p class="hint">电脑：方向键 / WASD · 手机：滑动棋盘或点击方向按钮</p>
+    </div>
+
+    <script src="script.js"></script>
+  <script src="../controls.js"></script>
+</body>
+</html>
